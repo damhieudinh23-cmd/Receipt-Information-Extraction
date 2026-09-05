@@ -1,0 +1,9 @@
+# Bỏ qua môi trường ảo và thư mục hệ thống
+rie_env/
+__pycache__/
+.vscode/
+
+# Nếu không muốn đưa ảnh test và kết quả lên thì bật 2 dòng này (tùy chọn)
+# input/
+# output/
+# debug/
