@@ -1,2 +1,2 @@
-Tên file gốc: mcocr_public_145014jkafe.jpg
-Trạng thái: Đã tách nền thành công! Hãy xem ảnh trong thư mục debug.
+Tên file: mcocr_public_145014jkafe.jpg
+Trạng thái: Đã xử lý xoay và tách nền thành công!
