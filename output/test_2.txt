@@ -1,0 +1,2 @@
+Tên file gốc: test_2.jpg
+Trạng thái: Đã tách nền thành công! Hãy xem ảnh trong thư mục debug.
