@@ -1,2 +1,0 @@
-Tên file: test_2.jpg
-Trạng thái: Đã xử lý xoay và tách nền thành công!
