@@ -2,7 +2,7 @@
 rie_env/
 __pycache__/
 .vscode/
-
+.env
 # Nếu không muốn đưa ảnh test và kết quả lên thì bật 2 dòng này (tùy chọn)
 # input/
 # output/
