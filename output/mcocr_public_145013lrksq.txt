@@ -1,0 +1,77 @@
+Vagejots
+GUEST INVOICE
+LECHAMP
+INFULS RESOM NOTHER
+10:50:14AM
+Dale print: 311Vc020
+Tên khách (Name)
+Ha Thi Thu
+1416 Nguyen Thi Thanh Thuyen
+Cashier Print:
+Công w (Company)-BEGOB)
+12090
+Folio Number/MA số kháchs
+9904
+Room No/Phòng số:
+Địa chỉ (Address)
+No.of Guests/Số khách:
+29/01/20
+Check In/Ngày đến:
+MST VAT code
+31/01/20
+Check Out/Ngày đi:
+Ngay
+Tên hàng hóa và dịch vụ
+Thành tien
+Đơn vì tính
+Sônlượng
+Đơn gia
+(Date)
+Description
+Unit)
+(Unit price)
+(Amount)
+Quantity
+290120
+17 Đã uống trong phong (Mmibm (bạch chuych p Phim)
+50,000
+50,000
+VỚI 20120 XU5 DỊCH VU ẤN UỐNG KHAU THỊ
+3,000,000
+13,000,000
+Phim
+29/01200 116 Dịch vũ phong nghứ (Room Chính Trị
+300,000
+300,000
+Phong
+19129/0120 117 Dịch vù phòng nghi (s
+700,000
+700,000
+300120
+3,550,000
+M5-Dich vunnuon
+3550,000
+030012001150Pch vuan uong
+2430,000
+2630,000
+300,000
+190160/116 Dich vuphong nam
+J00,000
+700,000
+1200ch vu phong nghiem
+000,000
+50,000
+Trong trong phong Manh
+su,000
+100,000
+006 Dõ nông trong phong (Minita)
+100,000
+Pheu
+100.000
+100,000
+Chu suong trong phong Mminh thu
+Phieu
+11,280,000
+11,280,000
+MISACARD DAO2
+Pang

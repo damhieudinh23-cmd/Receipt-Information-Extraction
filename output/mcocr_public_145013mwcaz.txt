@@ -1,0 +1,59 @@
+Contructed
+ĐÃO CÁO NHANH POS/CA
+POS1001
+so cai2
+NVB1:09028435
+Tên NV:S1sgciit
+VÀ NGÀY KINH DUANH: 09/08/2020
+THUY NGÀY HE TINONG: 09/08/2020 2211 MM
+The communisem Doanh số 4 thuế suisessessmission
+MÔ TÁ
+SỐ TIẾN
+Tổng trước thuế
+18.163.268
+Tổng thuế
+1698.080
+Tổng sau thuế
+18.861.348
+Phải trả VINID
+133.000
+Payoo/cosmo
+Tổng thanh toán
+8.994.348
+19888888: THANH TOÁN
+MÔ TẢI
+SL
+SỐ TIẾN
+TIỀN MẶT
+t4.13:943.648
+PMH bên thứ 3
+Biên nhận thanh toán
+10,800
+Winid
+1267/148.000
+Phiếu quả tăng
+Thể tín dụng
+408.500
+Thể ghi nơ
+Thẻ trả trước
+Thành vi điện tử của VinID Pay Thị
+20.000
+9.009.348
+Tổng Tiến
+THANH TOÁN THỪA
+ĐẠI LÀM TRÒN TIẾN MẶT LÝ
+Y28
+ĐÃ NHẬP ƠN VI TIỀN
+Tổng Tiền
+500.000
+THỊ TIẾN BÁT ẤU KINH DOANH
+TIẾN HỆ THỐNG
+VƯỢT QUÁ/THIẾU
+COUPON
+VOUCHER
+PMH bên thứ 3
+Biên nhận thanh toán
+Vinid
+THE AF42474474212x% KẾT THÚC 44x 1944
+Triple Camera
+M21

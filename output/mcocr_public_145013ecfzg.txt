@@ -1,0 +1,43 @@
+TRONG VM% ONH DỰ ẢN KDC lần biên cọc 6 tế
+DA khu DCLB cọc 6, P. Cảm Sơn
+TP. Căm Pha, T, Quang Ninh
+Vincommerce
+024.71066856-11561
+HÓA ƠN BÁN HÀNG
+0H:00073366
+12 Ngày bán:15/08/2020 09:22 19
+NVBH:09021212
+Quấy:001
+T.Tiến
+ơn giá
+SL
+Hặt hàng
+CP Thịt heo xay 300g
+49.500
+49.500
+038935058962104
+SAFOCO Bánh tráng Việt Nam gói 200g
+13.000
+8934678040018
+13.000
+NHÀ TỜNG TIẾN PHẢI T. TOÁNG
+62.500
+TỔNG TIẾN Ã GIẢM
+TIẾN KHÁCH TRẢ
+62.500
+TIẾN MẶT
+59.500
+VinID
+3.000
+VÀ TIẾN TRẢ LẠI
+Trong (Giá đã bao gốm thuế GTGT T)
+ID thẽ khách hàng
+XXXXX5412
+thiếm tích(1.000VND-1 điểm)
+2
+số tham chiếu
+00445600100073366
+Chỉ xuất hóa đơn trong ngày
+which invoice will be issued within same down
+CÁM ƠN QUỸ KHÁCH VÀ HỢN GẶP LẠI NAM
+Motline: 02471066866 Website: Vinmart All
