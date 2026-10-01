@@ -38,13 +38,13 @@ def main():
     print("--- HỆ THỐNG TRÍCH XUẤT HÓA ĐƠN (RIE): TEXT RECOGNITION (VIETOCR) ---")
     
     if not os.path.exists(DETECTED_DIR):
-        print(f"⚠️ Chưa tìm thấy thư mục '{DETECTED_DIR}'. Hãy chạy file 'text_detection.py' trước!")
+        print(f" Chưa tìm thấy thư mục '{DETECTED_DIR}'. Hãy chạy file 'text_detection.py' trước!")
         return
 
     subfolders = [f for f in os.listdir(DETECTED_DIR) if os.path.isdir(os.path.join(DETECTED_DIR, f))]
 
     if len(subfolders) == 0:
-        print(f"⚠️ Không tìm thấy thư mục con nào trong '{DETECTED_DIR}'.")
+        print(f" Chưa tìm thấy thư mục con nào trong '{DETECTED_DIR}'.")
         return
 
     # Khởi tạo AI (lần đầu tiên chạy sẽ mất chút thời gian để máy tự động tải weights)
@@ -71,7 +71,7 @@ def main():
         crop_files.sort(key=extract_number)
 
         if not crop_files:
-            print(f"   ⚠️ Không tìm thấy ảnh crop nào trong {folder_path}")
+            print(f"    Không tìm thấy ảnh crop nào trong {folder_path}")
             continue
 
         full_extracted_text = []
@@ -96,7 +96,7 @@ def main():
         with open(out_path, 'w', encoding='utf-8') as f:
             f.write("\n".join(full_extracted_text))
             
-        print(f"    -> ✅ Đã xuất thành công kết quả text tại: {out_path}")
+        print(f"     Đã xuất thành công kết quả text tại: {out_path}")
 
     print("\n -> HOÀN THÀNH TOÀN BỘ PIPELINE RIE!")
 
