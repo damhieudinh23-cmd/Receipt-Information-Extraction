@@ -7,3 +7,8 @@ __pycache__/
 # input/
 # output/
 # debug/
+
+# Bỏ qua mô hình nặng (không đẩy file .safetensors / .bin)
+my_model/*.safetensors
+my_model/*.bin
+*.zip
