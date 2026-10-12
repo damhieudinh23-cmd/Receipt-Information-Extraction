@@ -1,0 +1,42 @@
+crop_0000.png: VM% ONH DỰ ÁN KDC lần biên cọc 6
+crop_0001.png: DA khu DCLB coc 8, P. Càm Sơn
+crop_0002.png: Vincommerce
+crop_0003.png: TP. Cảm Phá, T. Quảng Ninh
+crop_0004.png: 024.71086868-44561
+crop_0005.png: VÀ HÓA ƠN BÁN HÀNG
+crop_0006.png: Ngày bán: 14/08/2020 19:55
+crop_0007.png: 1H:00073317
+crop_0008.png: Quấy:001
+crop_0009.png: NVBH:09021213
+crop_0010.png: Mặt hàng
+crop_0011.png: sơn giá
+crop_0012.png: SL
+crop_0013.png: T. Tiến
+crop_0014.png: LOTTE Kem tháp đôi Berry
+crop_0015.png: 8801118253003
+crop_0016.png: 33.900
+crop_0017.png: 33.900
+crop_0018.png: URC Trả xanh hương chanh c2 500/455m1 T24
+crop_0019.png: 8934564600357
+crop_0020.png: 9.000
+crop_0021.png: 9.000
+crop_0022.png: TỔNG TIẾN PHẢI T. TOÁN
+crop_0023.png: 142.900
+crop_0024.png: TỔNG TIỀN Ã GIẢN
+crop_0025.png: TIỀN KHÁCH TRẢ
+crop_0026.png: 42.900
+crop_0027.png: TIẾN MẶT
+crop_0028.png: 39.900
+crop_0029.png: VinID
+crop_0030.png: 13.000
+crop_0031.png: TIẾN TRẢ LẠI
+crop_0032.png: (Giá đã bao gồm thuế GTGT)
+crop_0033.png: ID thẻ khách hàng
+crop_0034.png: XXXXXXXXXXXXXXXXXX9624
+crop_0035.png: điểm tích(1.000VND-1 điểm)
+crop_0036.png: số tham chiếu
+crop_0037.png: 00445600100073317
+crop_0038.png: Chỉ xuất hóa đơn trong ngày
+crop_0039.png: Tax invoice will be issued within same day
+crop_0040.png: CÁM ƠN QUÝ KHÁCH VÀ HỢN GẶP LẠI
+crop_0041.png: 1981 Hotline: 02471066866 website: vinmart.com 1996

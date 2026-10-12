@@ -1,0 +1,31 @@
+crop_0000.png: VM% QNH 1060-1082 Trần Phú
+crop_0001.png: Số 1060-1082 Đương Trần Phú
+crop_0002.png: Vincommerce
+crop_0003.png: TP. Câm Phà, Quảng Ninh
+crop_0004.png: 02471066856-49301
+crop_0005.png: HÓA ƠN BÁN HÀNG
+crop_0006.png: Ngày bán:15/08/2020 11:04
+crop_0007.png: 0H:00064608
+crop_0008.png: Quầy:001
+crop_0009.png: NVBH:09024144
+crop_0010.png: Mặt hàng
+crop_0011.png: ơn giá
+crop_0012.png: SL
+crop_0013.png: T.Tiền
+crop_0014.png: Trứng gà tươi Dabaco hộp 10 quả
+crop_0015.png: 8936057560032
+crop_0016.png: 25.600
+crop_0017.png: 25.600
+crop_0018.png: TỔNG TIỀN PHẢI T. TOÁN
+crop_0019.png: 25.600
+crop_0020.png: TỔNG TIẾN Ă GIẢM
+crop_0021.png: TIỀN KHÁCH TRẢ
+crop_0022.png: 25.600
+crop_0023.png: TIỀN MẶT
+crop_0024.png: 25.600
+crop_0025.png: TIỀN TRẢ LẠI
+crop_0026.png: (Giá đã bao gồm thuế GTGT)
+crop_0027.png: Chỉ xuất hóa đơn trong ngày
+crop_0028.png: Tax invoice will be issued within same day
+crop_0029.png: CÁM ƠN QUÝ KHÁCH VÀ HỆN GẶP LẠI
+crop_0030.png: Hotl ine: 02471066866 Website: vinmart.com
