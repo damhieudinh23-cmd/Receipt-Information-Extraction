@@ -1,0 +1,112 @@
+{
+  "source": "test5_processed.txt",
+  "STORE": "MINIMART ANAN",
+  "DATE": "16/08/2020",
+  "TOTAL": "500,000",
+  "PROD": [
+    "si mỏng không NT Nam (0.78)",
+    "GOI (0.96)",
+    "n NO (0.77)",
+    "GO I (0.95)",
+    "82g NT (0.91)",
+    "-go (0.97)",
+    "80g NT (0.82)",
+    "vị phô NT (0.83)",
+    "GỌI (0.96)"
+  ],
+  "entities": [
+    {
+      "type": "STORE",
+      "word": "ADMINIMART ANANT",
+      "score": 0.912212782435947
+    },
+    {
+      "type": "PROD",
+      "word": "si mỏng không NT Nam",
+      "score": 0.7843571841716767
+    },
+    {
+      "type": "PROD",
+      "word": "GOI",
+      "score": 0.9550948441028595
+    },
+    {
+      "type": "PROD",
+      "word": "17,000",
+      "score": 0.9227398037910461
+    },
+    {
+      "type": "PROD",
+      "word": "n NO",
+      "score": 0.7692525088787079
+    },
+    {
+      "type": "PROD",
+      "word": "GO I",
+      "score": 0.9511084258556366
+    },
+    {
+      "type": "PROD",
+      "word": "16,000",
+      "score": 0.9581666588783264
+    },
+    {
+      "type": "PROD",
+      "word": "82g NT",
+      "score": 0.907531718413035
+    },
+    {
+      "type": "PROD",
+      "word": "-go 1",
+      "score": 0.9655219515164694
+    },
+    {
+      "type": "PROD",
+      "word": "6,000",
+      "score": 0.9533904790878296
+    },
+    {
+      "type": "PROD",
+      "word": "6,",
+      "score": 0.5442087650299072
+    },
+    {
+      "type": "PROD",
+      "word": "80g NT",
+      "score": 0.8244173129399618
+    },
+    {
+      "type": "PROD",
+      "word": "GO 1",
+      "score": 0.9660123288631439
+    },
+    {
+      "type": "PROD",
+      "word": "16,",
+      "score": 0.7325329780578613
+    },
+    {
+      "type": "PROD",
+      "word": "vị phô NT",
+      "score": 0.8305004437764486
+    },
+    {
+      "type": "PROD",
+      "word": "GỌI",
+      "score": 0.9601317246754965
+    },
+    {
+      "type": "PROD",
+      "word": "20,000",
+      "score": 0.9603243768215179
+    },
+    {
+      "type": "DATE",
+      "word": "Xin cám ơn",
+      "score": 0.4813235402107239
+    }
+  ],
+  "raw_text": "ADMINIMART ANANT\nThuy Chợ Sùi Phú Thị Gia Lâm Đó\nTel:\nHÓA ĐƠN BÁN HÀNG\nThành tiến\nTên hàng\nSL ĐVT\nĐơn giá\nTheo 8934755010354 BVS Diana sensi mỏng không NT Nam\nGOI\n17,000\n17,000\n8934755014314 bvs diana sensi cool hàng n NO\nGO I\n16,000\n16,000\n8936017368111 Mì omachi bò 82g NT\n-go 1\n6,000\n6,000\n8936017368104 Mì omachi sườn 80g NT\nGO 1\n16,000\n16,000\n8936096670129 bánh gạo one one mặn vị phô NT\nGỌI\n20,000\n20,000\nTổng sối\n5\nTổng cộng:\n65,000\nTiền khách trả:\nVND\n500,000\nTiền trả lại VND:\n435,000\nSố GD: 090AB2212008003907 Ngày: 16/08/2020-14:43\nThu'ngân: BH5\nTrong Xin cám ơn và hẹn gặp lại quý khách Iiện",
+  "total_tokens": 251,
+  "num_chunks": 1
+}

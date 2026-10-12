@@ -9,9 +9,9 @@ crop_0007.png: 0H:00073317
 crop_0008.png: Quấy:001
 crop_0009.png: NVBH:09021213
 crop_0010.png: Mặt hàng
-crop_0011.png: SL
-crop_0012.png: ơn giá
-crop_0013.png: T.Tiến
+crop_0011.png: ơn giá
+crop_0012.png: T.Tiến
+crop_0013.png: SL
 crop_0014.png: LOTTE Kem tháp đôi Berry
 crop_0015.png: 8801118253003
 crop_0016.png: 33.900

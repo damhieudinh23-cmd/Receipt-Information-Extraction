@@ -1,0 +1,60 @@
+{
+  "source": "test2_processed.txt",
+  "STORE": "Vincommerce",
+  "DATE": "14/08/2020",
+  "TOTAL": "42.900",
+  "PROD": [
+    "erry (0.91)",
+    "chanh c2 500/455m1 T24 (0.95)"
+  ],
+  "entities": [
+    {
+      "type": "STORE",
+      "word": "Vincommerce",
+      "score": 0.8611351251602173
+    },
+    {
+      "type": "STORE",
+      "word": "TP.",
+      "score": 0.9063380360603333
+    },
+    {
+      "type": "DATE",
+      "word": "14/08/2020 19:55",
+      "score": 0.8157702565193177
+    },
+    {
+      "type": "DATE",
+      "word": "0H:00073317",
+      "score": 0.931847265788487
+    },
+    {
+      "type": "PROD",
+      "word": "erry",
+      "score": 0.9078681170940399
+    },
+    {
+      "type": "PROD",
+      "word": "8801118253003",
+      "score": 0.9658475347927639
+    },
+    {
+      "type": "PROD",
+      "word": "33.900",
+      "score": 0.7078229784965515
+    },
+    {
+      "type": "PROD",
+      "word": "chanh c2 500/455m1 T24",
+      "score": 0.9468071406537836
+    },
+    {
+      "type": "PROD",
+      "word": "8934564600357",
+      "score": 0.968043395451137
+    }
+  ],
+  "raw_text": "VM% QNH Dự án KDC lấn biển coc 6\nDA khu DCLB cọc 8, P. Cầm Sơn\nVincommerce\nTP. Cảm Phà, T. Quảng Ninh\n024.71066868-44561\nHÓA ƠN BÁN HẢNG\nNgày bán: 14/08/2020 19:55\n0H:00073317\nQuấy:001\nNVBH:09021213\nMặt hàng\nơn giá\nT.Tiến\nSL\nLOTTE Kem tháp đôi Berry\n8801118253003\n33.900\n33.900\nURC Trà xanh hương chanh c2 500/455m1 T24\n8934564600357\n9.000\n9.000\nTỜNG TIẾN PHẢI T. TOÁN\n42.900\nTỔNG TIẾN Ã GIẢM\nTIẾN KHÁCH TRẢ\n42.900\nTIỀN MẶT\n39.900\nVinID\n3.000\nTIỀN TRẢ LẠI\n(Giá đã bao gồm thuế GTGT)\nID thẻ khách hàng\nXXXXXXXXXXXXXXX9624\niếm tích(1.000VND-1 điểm)\nSố tham chiếu\n00445600100073317\nChỉ xuất hóa đơn trong ngày\nTax invoice will be issued within same day\nCÁM ƠN QUÝ KHÁCH VÀ HỆN GẶP LẠI\nHotline: 02471066866 Website: Vinmart.com",
+  "total_tokens": 330,
+  "num_chunks": 2
+}

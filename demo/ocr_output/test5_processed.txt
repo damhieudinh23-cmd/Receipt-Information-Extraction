@@ -1,0 +1,40 @@
+crop_0000.png: ADMINIMART ANANT
+crop_0001.png: Thuy Chợ Sùi Phú Thị Gia Lâm Đó
+crop_0002.png: Tel:
+crop_0003.png: HÓA ĐƠN BÁN HÀNG
+crop_0004.png: Thành tiến
+crop_0005.png: Tên hàng
+crop_0006.png: SL ĐVT
+crop_0007.png: Đơn giá
+crop_0008.png: Theo 8934755010354 BVS Diana sensi mỏng không NT Nam
+crop_0009.png: GOI
+crop_0010.png: 17,000
+crop_0011.png: 17,000
+crop_0012.png: 8934755014314 bvs diana sensi cool hàng n NO
+crop_0013.png: GO I
+crop_0014.png: 16,000
+crop_0015.png: 16,000
+crop_0016.png: 8936017368111 Mì omachi bò 82g NT
+crop_0017.png: -go 1
+crop_0018.png: 6,000
+crop_0019.png: 6,000
+crop_0020.png: 8936017368104 Mì omachi sườn 80g NT
+crop_0021.png: GO 1
+crop_0022.png: 16,000
+crop_0023.png: 16,000
+crop_0024.png: 8936096670129 bánh gạo one one mặn vị phô NT
+crop_0025.png: GỌI
+crop_0026.png: 20,000
+crop_0027.png: 20,000
+crop_0028.png: Tổng sối
+crop_0029.png: 5
+crop_0030.png: Tổng cộng:
+crop_0031.png: 65,000
+crop_0032.png: Tiền khách trả:
+crop_0033.png: VND
+crop_0034.png: 500,000
+crop_0035.png: Tiền trả lại VND:
+crop_0036.png: 435,000
+crop_0037.png: Số GD: 090AB2212008003907 Ngày: 16/08/2020-14:43
+crop_0038.png: Thu'ngân: BH5
+crop_0039.png: Trong Xin cám ơn và hẹn gặp lại quý khách Iiện

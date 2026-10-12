@@ -1,0 +1,60 @@
+{
+  "source": "test3_processed.txt",
+  "STORE": "Vincommerce",
+  "DATE": "14/08/2020",
+  "TOTAL": "42.900",
+  "PROD": [
+    "Berry (0.79)",
+    "c2 500/455m1 T24 (0.94)"
+  ],
+  "entities": [
+    {
+      "type": "STORE",
+      "word": "Vincommerce",
+      "score": 0.8560934662818909
+    },
+    {
+      "type": "STORE",
+      "word": "TP.",
+      "score": 0.8949481844902039
+    },
+    {
+      "type": "DATE",
+      "word": "bán:14/08/2020 19:55",
+      "score": 0.8318447880446911
+    },
+    {
+      "type": "DATE",
+      "word": "1H:00073317",
+      "score": 0.9345853839601789
+    },
+    {
+      "type": "PROD",
+      "word": "Berry",
+      "score": 0.7874921560287476
+    },
+    {
+      "type": "PROD",
+      "word": "038801118253003",
+      "score": 0.966436579823494
+    },
+    {
+      "type": "PROD",
+      "word": "33.900",
+      "score": 0.9412491619586945
+    },
+    {
+      "type": "PROD",
+      "word": "c2 500/455m1 T24",
+      "score": 0.9405303239822388
+    },
+    {
+      "type": "PROD",
+      "word": "8934564600357",
+      "score": 0.9663338235446385
+    }
+  ],
+  "raw_text": "VM% ONH Dự Án KDC lần biên cọc 5\n\"Và Dà khu DCLB coc 8,P. Cảm Sơn Thị\"\nVincommerce\nTP. Cảm Phà, T. Quảng Ninh\n024.71066865-44561\nHÓA ƠN BẮN HẢNG\nNgày bán:14/08/2020 19:55\n1H:00073317\nQUẤY 001\n15 NVBH:09021213\nvà Mặt hàng á\nđơn giái\nT. Tiến\nSL\nLOTTE Kem tháp đôi Berry\n038801118253003\n33.900\n33.900\nURC Trả xanh hương chanh c2 500/455m1 T24\n8934564600357\n9.000\n9.000\nTỜNG TIỀN PHẢI T. TOÁN\n42.900\nTỔNG TIẾN Ã GIẢM\nTIẾN KHÁCH TRẢ\n42.900\nTIỀN MẶT\n39.900\nVinID\n3.000\nTIẾN TRẢ LẠI\nTrong (Giá đã bao gồm thuế GTGT)\nID thẻ khách hàng\nXXXXXXXXXXXXXXX9624\nthuỷ iếm tích(1.000VND-1 điểm)\nSố tham chiếu\n00445600100073317\nchỉ xuất hóa đơn trong ngày nha\nIn Tax invoice will be issued within same day the state\nTHUY CÁM ON QUÝ KHÁCH VÀ HỌN GẶP LẠI CHÍNH\n1984 Hotline: 02471066866 website: vinmart.com 1996",
+  "total_tokens": 348,
+  "num_chunks": 2
+}

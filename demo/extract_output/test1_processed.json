@@ -1,0 +1,49 @@
+{
+  "source": "test1_processed.txt",
+  "STORE": "Vincommerce",
+  "DATE": "15/08/2020",
+  "TOTAL": "25.600",
+  "PROD": [
+    "Dabaco hộp 10 quả (0.84)"
+  ],
+  "entities": [
+    {
+      "type": "STORE",
+      "word": "Vincommerce",
+      "score": 0.8706143200397491
+    },
+    {
+      "type": "STORE",
+      "word": "TP.",
+      "score": 0.9047494530677795
+    },
+    {
+      "type": "DATE",
+      "word": "bán:15/08/2020 11:04",
+      "score": 0.849363636225462
+    },
+    {
+      "type": "DATE",
+      "word": "0H:00064608",
+      "score": 0.9343897327780724
+    },
+    {
+      "type": "PROD",
+      "word": "Dabaco hộp 10 quả",
+      "score": 0.8384791910648346
+    },
+    {
+      "type": "PROD",
+      "word": "8936057560032",
+      "score": 0.9671271741390228
+    },
+    {
+      "type": "TOTAL",
+      "word": "Ả",
+      "score": 0.4247700870037079
+    }
+  ],
+  "raw_text": "VM% QNH 1060-1082 Trần Phú\nSố 1060-1082 Đương Trần Phú\nVincommerce\nTP. Câm Phà, Quảng Ninh\n02471066856-49301\nHÓA ƠN BÁN HÀNG\nNgày bán:15/08/2020 11:04\n0H:00064608\nQuầy:001\nNVBH:09024144\nMặt hàng\nơn giá\nSL\nT.Tiền\nTrứng gà tươi Dabaco hộp 10 quả\n8936057560032\n25.600\n25.600\nTỔNG TIỀN PHẢI T. TOÁN\n25.600\nTỔNG TIẾN Ă GIẢM\nTIỀN KHÁCH TRẢ\n25.600\nTIỀN MẶT\n25.600\nTIỀN TRẢ LẠI\n(Giá đã bao gồm thuế GTGT)\nChỉ xuất hóa đơn trong ngày\nTax invoice will be issued within same day\nCÁM ƠN QUÝ KHÁCH VÀ HỆN GẶP LẠI\nHotl ine: 02471066866 Website: vinmart.com",
+  "total_tokens": 243,
+  "num_chunks": 1
+}
