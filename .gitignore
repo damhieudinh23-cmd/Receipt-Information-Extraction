@@ -12,3 +12,7 @@ __pycache__/
 my_model/*.safetensors
 my_model/*.bin
 *.zip
+
+# Bỏ qua file model nặng
+modellm3/*.safetensors
+modellm3/*.bin
