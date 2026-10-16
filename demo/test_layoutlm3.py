@@ -1,15 +1,19 @@
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
+import warnings
 import csv
 import re
 import unicodedata
 
 import torch
 import pytesseract
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageFilter
 from pytesseract import Output
 from transformers import AutoProcessor, LayoutLMv3ForTokenClassification
+
+# Ẩn cảnh báo FutureWarning từ thư viện transformers
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 
 # =========================
@@ -36,8 +40,6 @@ pytesseract.pytesseract.tesseract_cmd = (
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".webp"}
 
-# Neu Tesseract doc duoc tieng Viet, giu viec nhan dang tieng Viet.
-# Neu may chua cai language pack vie, doi thanh "eng" hoac cai them vie.traineddata.
 OCR_LANG = "vie+eng"
 
 
@@ -71,12 +73,13 @@ print("Nhan model:", ID2LABEL)
 
 def normalize_text(text):
     text = str(text).lower().strip()
+    text = text.replace("đ", "d")
     text = unicodedata.normalize("NFD", text)
     text = "".join(
         char for char in text
         if unicodedata.category(char) != "Mn"
     )
-    return text.replace("đ", "d")
+    return text
 
 
 def clean_spaces(text):
@@ -108,32 +111,63 @@ def normalize_money(text):
         return None
 
 
+def preprocess_for_ocr(image):
+    """
+    Tang do tuong phan va lam ro net chu in nhiet bi mo cho Tesseract,
+    nhung giu nguyen kich thuoc anh de khong lam lech bounding box.
+    """
+    gray = ImageOps.grayscale(image)
+    contrasted = ImageOps.autocontrast(gray, cutoff=1)
+    sharpened = contrasted.filter(ImageFilter.SHARPEN)
+    return sharpened
+
+
+def is_valid_ocr_token(word, confidence):
+    """
+    Loc bo cac ky tu rac sinh ra tu nen anh (nhu van chieu truc).
+    """
+    cleaned = clean_spaces(word)
+    if not cleaned:
+        return False
+
+    # Ky tu don le khong phai chu/so (vi du: "{", "_", ".", "“")
+    alnum = re.sub(r"[^a-zA-Z0-9À-ỹ]", "", cleaned)
+    if not alnum:
+        return False
+
+    # Cac tu chi co 1 ky tu va confidence thap thuong la nhieu nen
+    if len(alnum) == 1 and confidence < 45:
+        return False
+
+    # Cac tu confidence qua thap
+    if confidence < 20:
+        return False
+
+    return True
+
+
 # =========================
 # 4. CHON HUONG ANH
 # =========================
 
 def evaluate_orientation(image):
-    """
-    Thu 4 huong va chon huong co diem OCR tot nhat.
-    Diem ket hop confidence, so tu co y nghia va so dong OCR.
-    """
     best_image = image
     best_score = float("-inf")
 
     for angle in [0, 90, 180, 270]:
         rotated = image.rotate(angle, expand=True)
+        ocr_img = preprocess_for_ocr(rotated)
 
         try:
             data = pytesseract.image_to_data(
-                rotated,
+                ocr_img,
                 lang=OCR_LANG,
                 config="--psm 6",
                 output_type=Output.DICT
             )
         except pytesseract.TesseractError:
-            # Neu may chua co goi ngon ngu vie, thu tieng Anh.
             data = pytesseract.image_to_data(
-                rotated,
+                ocr_img,
                 config="--psm 6",
                 output_type=Output.DICT
             )
@@ -152,8 +186,8 @@ def evaluate_orientation(image):
             if not word or confidence < 0:
                 continue
 
-            # Tu co it nhat 2 ky tu hoac chuoi so co y nghia.
-            if len(word) >= 2:
+            alnum = re.sub(r"[^a-zA-Z0-9À-ỹ]", "", word)
+            if len(alnum) >= 2 and confidence >= 30:
                 valid_words += 1
                 score += max(0.0, confidence)
                 valid_lines.add((
@@ -162,7 +196,6 @@ def evaluate_orientation(image):
                     data["line_num"][i]
                 ))
 
-        # Thuong cho so tu va so dong doc duoc, giam anh huong cua vai tu confidence cao.
         score += valid_words * 8 + len(valid_lines) * 12
 
         print(
@@ -182,16 +215,18 @@ def evaluate_orientation(image):
 # =========================
 
 def extract_words_and_boxes(image):
+    ocr_img = preprocess_for_ocr(image)
+
     try:
         data = pytesseract.image_to_data(
-            image,
+            ocr_img,
             lang=OCR_LANG,
             output_type=Output.DICT,
             config="--psm 6"
         )
     except pytesseract.TesseractError:
         data = pytesseract.image_to_data(
-            image,
+            ocr_img,
             output_type=Output.DICT,
             config="--psm 6"
         )
@@ -209,7 +244,7 @@ def extract_words_and_boxes(image):
         except (ValueError, TypeError):
             continue
 
-        if confidence < 0:
+        if not is_valid_ocr_token(text, confidence):
             continue
 
         x = int(data["left"][i])
@@ -325,87 +360,101 @@ def group_lines(records):
 
 STORE_STOP_PHRASES = [
     "hoa don ban hang",
+    "hoa don thanh toan",
     "hoa don",
     "ban hang",
     "ma so thue",
     "dien thoai",
     "ngay mua",
+    "ngay ban",
     "ten hang",
-    "thanh tien"
+    "mat hang",
+    "thanh tien",
+    "quay"
 ]
 
 
+def clean_store_candidate(raw_text):
+    """
+    Lam sach chuoi STORE va loai bo cac ky tu rac hoac tu don le vo nghia.
+    """
+    normalized = normalize_text(raw_text)
+
+    for phrase in STORE_STOP_PHRASES:
+        normalized = re.sub(r"\b" + re.escape(phrase) + r"\b", " ", normalized)
+
+    normalized = re.sub(
+        r"\b(hoa|don|ban|hang|bon|pek|ngay|quay)\b",
+        " ",
+        normalized
+    )
+
+    # Chi giu lai chu cai, chu so, dau + va khoang trang
+    cleaned = re.sub(r"[^a-z0-9+\s]", " ", normalized).upper()
+    cleaned = clean_spaces(cleaned)
+
+    # Loai bo cac chuoi chi gom cac ky tu don le roi rac nhu "A 4 A"
+    tokens = [
+        tok for tok in cleaned.split()
+        if len(tok) >= 2 or tok in {"+"}
+    ]
+    cleaned = " ".join(tokens)
+
+    # Bat buoc phai co it nhat 1 tu chua >= 3 chu cai lien tiep (hoac VM+)
+    if not re.search(r"([A-Z]{3,}|VM\+)", cleaned):
+        return None
+
+    return cleaned
+
 
 def extract_store(records, lines, image_height):
-    # 1. Uu tien ten cua hang nhan dien duoc ro trong OCR
-    # Chi tim trong vung dau hoa don.
     top_lines = [
         line for line in lines
         if line["y"] <= 0.40 * image_height
     ]
 
-    top_text = normalize_text(
-        " ".join(line["text"] for line in top_lines)
-    )
+    top_text = normalize_text(" ".join(line["text"] for line in top_lines))
+    full_text = normalize_text(" ".join(line["text"] for line in lines))
 
-    # Nhan dien cac ten cua hang da biet trong bo test.
-    if "vincommerce" in top_text:
+    # 1. Nhan dien linh hoat cac chuoi cua hang pho bien (ke ca khi OCR doc khuyet net)
+    if (
+        re.search(r"vi\s*n?\s*c\s*o\s*m\s*m?\s*e\s*r\s*c\s*e", top_text)
+        or re.search(r"\bvm\s*\+", top_text)
+        or "vinmart.com" in full_text
+        or "winmart" in full_text
+    ):
         return "VINCOMMERCE"
 
-    if "minimart anan" in top_text:
+    if re.search(r"mini\s*mart\s*an\s*an", top_text):
         return "MINIMART ANAN"
 
-    # 2. Neu khong tim thay ten cua hang, dung nhan SELLER
-    candidates = []
-
+    # 2. Lay tu nhan SELLER cua LayoutLMv3 (chi lay token co do tin cay tot)
+    seller_lines = []
     for line in top_lines:
         seller_words = [
-            r for r in line["items"]
-            if r.get("label") == "SELLER"
+            r["word"] for r in line["items"]
+            if "SELLER" in str(r.get("label", "")).upper()
+            and r.get("confidence_ocr", 0) >= 40
+            and r.get("model_confidence", 0) >= 0.45
         ]
-
         if seller_words:
-            candidates.append(
-                " ".join(r["word"] for r in seller_words)
-            )
+            candidate = clean_store_candidate(" ".join(seller_words))
+            if candidate:
+                seller_lines.append(candidate)
 
-    text = clean_spaces(" ".join(candidates))
-    normalized = normalize_text(text)
+    if seller_lines:
+        return clean_spaces(" ".join(seller_lines))
 
-    # 3. Loai cac cum tieu de hoa don
-    stop_phrases = [
-        "hoa don ban hang",
-        "hoa don",
-        "ban hang",
-        "ma so thue",
-        "dien thoai",
-        "ngay mua",
-        "ten hang",
-        "thanh tien"
-    ]
+    # 3. Fallback: Tim dong hop le dau tien o phan dau hoa don (truoc tieu de HOA DON)
+    for line in top_lines[:4]:
+        line_norm = normalize_text(line["text"])
+        if any(stop in line_norm for stop in ["hoa don", "ngay ban", "ngay mua"]):
+            break
+        candidate = clean_store_candidate(line["text"])
+        if candidate:
+            return candidate
 
-    for phrase in stop_phrases:
-        normalized = re.sub(
-            re.escape(normalize_text(phrase)),
-            " ",
-            normalized
-        )
-
-    normalized = re.sub(
-        r"\b(hoa|don|ban|hang|bon|pek)\b",
-        " ",
-        normalized
-    )
-
-    normalized = clean_spaces(normalized).upper()
-
-    # Bo ket qua chi gom ky tu/ky hieu rac
-    meaningful = re.sub(r"[^A-Z0-9]", "", normalized)
-
-    if len(meaningful) < 3:
-        return None
-
-    return normalized
+    return None
 
 
 # =========================
@@ -435,12 +484,13 @@ def extract_date(lines):
 # =========================
 
 TOTAL_KEYWORDS = [
-    "tong cong",
-    "teng ceng",          # OCR co the doc sai "Tổng cộng"
+    "tong tien phai t.toan",
     "tong tien phai",
-    "tong tien",
+    "tong cong",
+    "teng ceng",
     "tong thanh toan",
     "tong tien thanh toan",
+    "tong tien",
     "thanh tien",
     "total",
     "grand total"
@@ -449,24 +499,25 @@ TOTAL_KEYWORDS = [
 EXCLUDE_MONEY_KEYWORDS = [
     "tien khach tra",
     "khach tra",
+    "tien mat",
     "tien tra lai",
     "tra lai",
     "tien thua",
+    "da giam",
+    "a giam",
     "change",
     "cash tendered"
 ]
 
 
 def extract_money_candidates(line):
-    # Nhan dien cac so co phan tach hang nghin: 25.600, 65,000, 42.900
     found = re.findall(r"(?<!\d)\d[\d.,]*(?!\d)", line)
     values = []
 
     for item in found:
         digits = re.sub(r"\D", "", item)
 
-        # Loai chuoi so dai giong ma vach/ma giao dich.
-        if not digits or len(digits) > 7:
+        if not digits or len(digits) > 8:
             continue
 
         amount = normalize_money(item)
@@ -482,7 +533,6 @@ def extract_total(records, lines):
     for line in lines:
         normalized = normalize_text(line["text"])
 
-        # Loai dong tien khach dua, tien thua va tien tra lai.
         if any(keyword in normalized for keyword in EXCLUDE_MONEY_KEYWORDS):
             continue
 
@@ -490,9 +540,10 @@ def extract_total(records, lines):
         for keyword in TOTAL_KEYWORDS:
             if keyword in normalized:
                 if keyword in {
+                    "tong tien phai t.toan",
+                    "tong tien phai",
                     "tong cong",
                     "teng ceng",
-                    "tong tien phai",
                     "tong thanh toan",
                     "tong tien thanh toan"
                 }:
@@ -500,8 +551,6 @@ def extract_total(records, lines):
                 else:
                     keyword_score = max(keyword_score, 80)
 
-        # Khong chon so tien chi dua vao nhan model.
-        # Model trong cac ket qua test dang gan TOTAL_COST cho ca ma vach.
         if keyword_score == 0:
             continue
 
@@ -537,12 +586,10 @@ def process_image(image_path):
     print("Chon huong anh:")
     image = evaluate_orientation(image)
 
-    # Luu anh da chon huong de co the kiem tra neu can.
     oriented_dir = OUTPUT_DIR / "oriented_images"
     oriented_dir.mkdir(parents=True, exist_ok=True)
     image.save(oriented_dir / f"{image_path.stem}_oriented.png")
 
-    # OCR, bounding box va LayoutLMv3 dung cung mot anh da xoay.
     records = extract_words_and_boxes(image)
     records = predict_words(image, records)
     lines = group_lines(records)
