@@ -29,8 +29,8 @@ def main():
         return
 
     tab_single, tab_batch = st.tabs([
-        "🔍 Demo 1 Ảnh Hóa Đơn",
-        "📂 Chạy Hàng Loạt (Thư mục demo_input)"
+        "Demo 1 Ảnh Hóa Đơn",
+        "Chạy Hàng Loạt (Thư mục demo_input)"
     ])
 
     # ==========================================
@@ -66,7 +66,7 @@ def main():
             target_name = selected_sample
 
         if target_image is not None:
-            if st.button("🚀 Chạy trích xuất", type="primary"):
+            if st.button("Chạy trích xuất", type="primary"):
                 with st.spinner("Đang xoay ảnh, nhận diện OCR và dự đoán LayoutLMv3..."):
                     output = process_receipt(
                         target_image,
@@ -78,15 +78,15 @@ def main():
                 res = output["result"]
 
                 # Hiển thị thẻ kết quả nổi bật
-                st.subheader("📌 Kết quả trích xuất")
+                st.subheader(" Kết quả trích xuất")
                 m1, m2, m3, m4 = st.columns(4)
-                m1.metric("🏪 Cửa hàng (STORE)", res["STORE"] or "Không rõ")
-                m2.metric("📅 Ngày mua (DATE)", res["DATE"] or "Không rõ")
+                m1.metric(" Cửa hàng (STORE)", res["STORE"] or "Không rõ")
+                m2.metric(" Ngày mua (DATE)", res["DATE"] or "Không rõ")
                 m3.metric(
                     "💰 Tổng tiền (TOTAL)",
                     f"{res['TOTAL']:,} đ" if res["TOTAL"] else "Không rõ"
                 )
-                m4.metric("🔄 Góc xoay tự động", f"{res['angle']}°")
+                m4.metric("Góc xoay tự động", f"{res['angle']}°")
 
                 st.divider()
 
@@ -100,7 +100,7 @@ def main():
                     st.image(output["annotated_image"], use_container_width=True)
 
                 # Hiển thị bảng chi tiết Token OCR
-                with st.expander("📄 Xem bảng chi tiết các từ (OCR Tokens & Nhãn dự đoán)"):
+                with st.expander("Xem bảng chi tiết các từ (OCR Tokens & Nhãn dự đoán)"):
                     df_tokens = pd.DataFrame([
                         {
                             "Từ (Word)": r["word"],
@@ -119,7 +119,7 @@ def main():
     with tab_batch:
         st.write(f"Tìm thấy **{len(existing_images)}** ảnh trong thư mục `{INPUT_DIR}`.")
 
-        if st.button("⚡ Chạy toàn bộ ảnh trong demo_input"):
+        if st.button("Chạy toàn bộ ảnh trong demo_input"):
             if not existing_images:
                 st.warning("Thư mục demo_input đang trống!")
             else:
@@ -150,7 +150,7 @@ def main():
 
                 csv_bytes = df_results.to_csv(index=False, encoding="utf-8-sig").encode("utf-8-sig")
                 st.download_button(
-                    label="📥 Tải xuống kết quả CSV",
+                    label="Tải xuống kết quả CSV",
                     data=csv_bytes,
                     file_name="extracted_results_demo.csv",
                     mime="text/csv"

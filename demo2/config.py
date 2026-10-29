@@ -58,6 +58,7 @@ TOTAL_KEYWORDS = [
     "tong tien",
     "thanh tien",
     "total",
+    "tong so thanh toan",
     "grand total"
 ]
 
