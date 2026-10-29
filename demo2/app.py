@@ -33,9 +33,7 @@ def main():
         "Chạy Hàng Loạt (Thư mục demo_input)"
     ])
 
-    # ==========================================
     # TAB 1: XỬ LÝ 1 ẢNH ĐƠN LẺ
-    # ==========================================
     with tab_single:
         col_ctrl1, col_ctrl2 = st.columns([1, 1])
 
@@ -113,9 +111,7 @@ def main():
                     ])
                     st.dataframe(df_tokens, use_container_width=True)
 
-    # ==========================================
     # TAB 2: CHẠY HÀNG LOẠT TRONG DEMO_INPUT
-    # ==========================================
     with tab_batch:
         st.write(f"Tìm thấy **{len(existing_images)}** ảnh trong thư mục `{INPUT_DIR}`.")
 
